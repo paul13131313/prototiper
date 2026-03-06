@@ -10,12 +10,20 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    // 過去の業種リストを取得
+    // 過去の業種リスト＆使用済み写真IDを取得
     const slugs = await getPrototypeList();
     const pastGenres: string[] = [];
+    const usedPhotoIds: string[] = [];
     for (const slug of slugs) {
       const p = await getPrototype(slug);
-      if (p) pastGenres.push(p.genre);
+      if (p) {
+        pastGenres.push(p.genre);
+        // HTMLからUnsplash写真IDを抽出
+        const photoMatches = p.html.matchAll(/unsplash\.com\/photo-([\w-]+)/g);
+        for (const m of photoMatches) {
+          if (!usedPhotoIds.includes(m[1])) usedPhotoIds.push(m[1]);
+        }
+      }
     }
 
     const anthropic = new Anthropic({
@@ -87,6 +95,8 @@ export async function GET(req: NextRequest) {
   - 美容/ファッション: 1522335789203-aabd1fc54bc9, 1487412912498-0447578fcca8, 1519699047748-de8e457a634e
   - スポーツ/フィットネス: 1534438327276-14e5300c3a48, 1571019613454-1cb2f99b2d8b, 1517836357463-d25dfeac3438
 - 上記以外の業種でも、Unsplashの実在する写真IDを使うこと
+- 絶対に他のプロトタイプと同じ写真を使わないこと
+${usedPhotoIds.length > 0 ? `- 以下の写真IDは既に使用済みなので絶対に使わないこと: ${usedPhotoIds.join(", ")}` : ""}
 - キービジュアルはヒーロー全幅で、最低height:60vhの大きさで配置
 - object-fit: coverでトリミング
 - 写真の上にオーバーレイ（半透明の色やグラデーション）をかけてテキストを読みやすくする`;
