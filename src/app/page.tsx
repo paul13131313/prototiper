@@ -67,7 +67,7 @@ export default async function Home() {
                         transform: "scale(0.16)",
                         transformOrigin: "top left",
                       }}
-                      sandbox="allow-same-origin"
+                      sandbox="allow-same-origin allow-scripts"
                       title={p.genre}
                     />
                   </div>
