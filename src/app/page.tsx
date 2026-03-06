@@ -11,8 +11,10 @@ export default async function Home() {
       {/* Intro + Gallery */}
       <section className="max-w-7xl mx-auto px-6 pt-6 pb-24">
         {/* Intro copy — 左寄せ、小さく */}
-        <p className="text-xs text-[#999] leading-relaxed max-w-sm mb-8">
-          AI制作のホームページ見本サイトです。毎日新しいサイトを自動的につくっています。気に入ったら<span className="whitespace-nowrap">ご連絡ください。</span>
+        <p className="text-xs text-[#999] leading-relaxed mb-8" style={{ wordBreak: "keep-all", overflowWrap: "break-word" }}>
+          AI制作のホームページ見本サイトです。<br />
+          毎日新しいサイトを自動的につくっています。<br />
+          気に入ったらご連絡ください。
         </p>
 
         {prototypes.length === 0 ? (
