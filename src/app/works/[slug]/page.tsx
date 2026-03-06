@@ -17,24 +17,27 @@ export default async function WorksDetailPage({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
+    <div className="min-h-screen">
       {/* Header bar */}
-      <div className="sticky top-0 z-50 bg-gray-900/90 backdrop-blur border-b border-gray-800">
+      <div className="sticky top-16 z-40 bg-[#DBD6CD]/90 backdrop-blur border-b border-[#C5BFB5]">
         <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link
               href="/"
-              className="text-sm text-gray-400 hover:text-white transition"
+              className="text-sm text-[#888] hover:text-[#262626] transition"
             >
               ← 一覧に戻る
             </Link>
-            <span className="text-xs bg-blue-600/20 text-blue-400 px-3 py-1 rounded-full">
+            <span
+              className="text-sm text-[#262626]"
+              style={{ fontFamily: "var(--font-display), serif" }}
+            >
               {prototype.genre}
             </span>
           </div>
           <Link
             href={`/contact?ref=${slug}`}
-            className="text-sm px-4 py-2 bg-white text-gray-900 rounded-lg font-medium hover:bg-gray-200 transition"
+            className="text-sm px-5 py-2 bg-[#D73C3C] text-white rounded-full font-medium hover:bg-[#c03535] transition"
           >
             このイメージでつくってほしい
           </Link>
@@ -42,7 +45,7 @@ export default async function WorksDetailPage({ params }: Props) {
       </div>
 
       {/* Prototype iframe */}
-      <div className="w-full" style={{ height: "calc(100vh - 120px)" }}>
+      <div className="w-full bg-white" style={{ height: "calc(100vh - 120px)" }}>
         <iframe
           srcDoc={prototype.html}
           className="w-full h-full border-0"
@@ -52,30 +55,30 @@ export default async function WorksDetailPage({ params }: Props) {
       </div>
 
       {/* Info bar */}
-      <div className="bg-gray-900 border-t border-gray-800">
+      <div className="bg-[#262626] text-[#DBD6CD]">
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div>
-              <h3 className="text-xs text-gray-500 uppercase tracking-wider">業種</h3>
-              <p className="mt-1 text-white">{prototype.genre}</p>
+              <h3 className="text-[11px] text-[#999] uppercase tracking-wider">業種</h3>
+              <p className="mt-1">{prototype.genre}</p>
             </div>
             <div>
-              <h3 className="text-xs text-gray-500 uppercase tracking-wider">料金目安</h3>
-              <p className="mt-1 text-white">5万円〜</p>
+              <h3 className="text-[11px] text-[#999] uppercase tracking-wider">料金目安</h3>
+              <p className="mt-1">5万円〜</p>
             </div>
             <div>
-              <h3 className="text-xs text-gray-500 uppercase tracking-wider">納期目安</h3>
-              <p className="mt-1 text-white">1〜2週間</p>
+              <h3 className="text-[11px] text-[#999] uppercase tracking-wider">納期目安</h3>
+              <p className="mt-1">1〜2週間</p>
             </div>
             <div>
-              <h3 className="text-xs text-gray-500 uppercase tracking-wider">生成日</h3>
-              <p className="mt-1 text-white">
+              <h3 className="text-[11px] text-[#999] uppercase tracking-wider">生成日</h3>
+              <p className="mt-1">
                 {new Date(prototype.createdAt).toLocaleDateString("ja-JP")}
               </p>
             </div>
           </div>
-          <div className="mt-6 pt-6 border-t border-gray-800">
-            <p className="text-xs text-gray-600">
+          <div className="mt-6 pt-6 border-t border-[#444]">
+            <p className="text-xs text-[#777]">
               ※ このプロトタイプはAI（Claude by Anthropic）が自動生成したものです。
               実在の企業・人物とは無関係です。実制作時はオリジナルコンテンツに差し替えます。
             </p>

@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-body);
 }
 
 body {
-  background: #030712;
-  color: #f9fafb;
+  background: #DBD6CD;
+  color: #262626;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
