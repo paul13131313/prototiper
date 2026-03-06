@@ -68,6 +68,13 @@ async function kvDel(key: string): Promise<void> {
   memoryStore.delete(key);
 }
 
+export async function deletePrototype(slug: string): Promise<void> {
+  await kvDel(`${PROTOTYPE_PREFIX}${slug}`);
+  const slugs = await getPrototypeList();
+  const filtered = slugs.filter((s) => s !== slug);
+  await kvSet(INDEX_KEY, filtered);
+}
+
 export async function deleteAllPrototypes(): Promise<void> {
   const slugs = await getPrototypeList();
   for (const slug of slugs) {
