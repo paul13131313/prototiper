@@ -11,8 +11,8 @@ export default async function Home() {
       {/* Intro + Gallery */}
       <section className="max-w-7xl mx-auto px-6 pt-6 pb-24">
         {/* Intro copy — 左寄せ、小さく */}
-        <p className="text-xs text-[#999] leading-relaxed max-w-xs mb-8">
-          AI制作のホームページ見本サイトです。毎日新しいサイトを自動的につくっています。気に入ったらご連絡ください。
+        <p className="text-xs text-[#999] leading-relaxed max-w-sm mb-8">
+          AI制作のホームページ見本サイトです。毎日新しいサイトを自動的につくっています。気に入ったら<span className="whitespace-nowrap">ご連絡ください。</span>
         </p>
 
         {prototypes.length === 0 ? (
@@ -40,8 +40,8 @@ export default async function Home() {
                       srcDoc={p.html}
                       className="border-0"
                       style={{
-                        width: "1440px",
-                        height: "810px",
+                        width: "400%",
+                        height: "400%",
                         transform: "scale(0.25)",
                         transformOrigin: "top left",
                       }}
