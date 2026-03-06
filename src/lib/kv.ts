@@ -60,6 +60,22 @@ export async function getAllPrototypes(): Promise<Prototype[]> {
   return prototypes;
 }
 
+async function kvDel(key: string): Promise<void> {
+  if (redis) {
+    await redis.del(key);
+    return;
+  }
+  memoryStore.delete(key);
+}
+
+export async function deleteAllPrototypes(): Promise<void> {
+  const slugs = await getPrototypeList();
+  for (const slug of slugs) {
+    await kvDel(`${PROTOTYPE_PREFIX}${slug}`);
+  }
+  await kvDel(INDEX_KEY);
+}
+
 export async function savePrototype(data: Prototype): Promise<void> {
   await kvSet(`${PROTOTYPE_PREFIX}${data.slug}`, data);
   const slugs = await getPrototypeList();
