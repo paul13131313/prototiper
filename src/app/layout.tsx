@@ -24,11 +24,16 @@ export const metadata: Metadata = {
     title: "PROTOTIPER — AIが毎日つくるWebサイト見本市",
     description:
       "AIが毎日1業種のWebサイトを自動生成。気に入ったら依頼するだけ。",
-    images: ["/api/og"],
+    images: ["/ogp.png"],
   },
   twitter: {
     card: "summary_large_image",
   },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
