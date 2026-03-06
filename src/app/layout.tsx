@@ -47,7 +47,7 @@ export default function RootLayout({
           <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <Link
               href="/"
-              className="text-2xl tracking-[0.15em] text-[#262626]"
+              className="text-2xl tracking-tight text-[#262626]"
               style={{ fontFamily: "var(--font-display), serif" }}
             >
               PROTOTIPER
@@ -78,7 +78,7 @@ export default function RootLayout({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
                 <h3
-                  className="text-lg tracking-[0.15em]"
+                  className="text-lg tracking-tight"
                   style={{ fontFamily: "var(--font-display), serif" }}
                 >
                   PROTOTIPER
